@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+  <!-- ne baidu transkodo -->
+  <meta name="Cache-Control" content="no-siteapp">
+
+  <!-- informo gup -->
+  <meta name="description" content="🍒">
+  <meta name="keywords" content="🍒">
+
+  <title>Tangut full font(0x17000~0x18aff).</title>
+
+  <!-- icons --
+  <link rel="icon" href="make/logo.png">
+  <link rel="apple-touch-icon" href="make/logo.png">
+  -->
+
+  <style>
+    @font-face{
+      font-family: tgw;
+      src: url('font/steli/TangutYinchuan.woff2') format('woff2');
+    }
+    @font-face{
+      font-family: whp;
+      src: url('font/steli/BabelStoneTangutWHYJIndex.woff')
+ format('woff')    }
+    [data-font*='tg']{font-family: tgw;}
+    [data-font*='wh']{font-family: whp;}
+  </style>
+
+</head>
+<body>
+  <div id="tangut">
+    <h5>Teksto(0x17000~0x187ff)</h5>
+    <div id="teksto" data-font="tg"></div>
+    <h5>Radikal(0x18800~0x18aff)</h5>
+    <div id="radikala" data-font="tg"></div>
+    <h5>Other tangut font</h5>
+    <div id="other" data-font="wh"></div>
+  </div>
+
+  <script>
+    const tk= document.querySelector('#teksto');
+    const rd= document.querySelector('#radikala');
+
+    // Unicode tangut area.
+    const tgu= 0x17000;
+    const tgn= 0x187ff;
+    const rdu= 0x18800;
+    const rdn= 0x18aff;
+    // Babel StongTangut WHYJindex.
+    // font 3064 and 4935.
+    const whAn= 0xebe7;
+    const whAu= whAn - 3064;
+    const whBn= 0xf346;
+    const whBu= whBn - 4935;
+
+
+    // const dnn= 0x1700f;
+
+    for(let i=tgu;i<=tgn;i++){
+      tk.innerHTML+= `&#${i}`;
+    }
+
+    for(let r=rdu;r<=rdn;r++){
+      rd.innerHTML+= `&#${r}`;
+    }
+    
+    // dome
+    // for(let k=whAu;k<=whAn;k++){
+    //   document.querySelector('#other').innerHTML+= `&#${k}`;
+    // }
+
+  </script>
+</body>
+</html>
